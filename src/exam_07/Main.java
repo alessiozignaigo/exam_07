@@ -1,6 +1,7 @@
 package exam_07;
 
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -23,6 +24,10 @@ public class Main {
   Graph grafo = new Graph (args[0]);
 
   Bfs bfs = new Bfs (grafo,chi);
+
+     ArrayList<Integer> p = grafo.getPersone(args[0]);
+     bfs.confronto_visite(p);
+
  }
 
 }

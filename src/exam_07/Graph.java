@@ -5,6 +5,7 @@ import java.util.*;
 public class Graph {
 
  private ArrayList<ArrayList<Integer>> grafo;
+ private ArrayList<Integer> persone;
  
  public Graph (String path) throws Exception {
   
@@ -13,7 +14,7 @@ public class Graph {
   
      
      int n_righe=0;      
-     
+
      do  {
            
       n_righe++;
@@ -23,7 +24,7 @@ public class Graph {
      n_righe=n_righe-1;
      ln.close();
      fr.close();
-     System.out.println("Ciao");     
+
       
      FileReader fr2 = new FileReader(path);
      Scanner scan2 =new Scanner(fr2);
@@ -31,6 +32,7 @@ public class Graph {
      scan2.nextLine();
      
      grafo = new ArrayList<ArrayList<Integer>>();
+
      
      for (int i=0; i<=n_righe; i++) {
       
@@ -47,16 +49,43 @@ public class Graph {
       //List<Integer> adjv = grafo.get(v);
       
       adju.add(v);
-      System.out.println(grafo);
+     // System.out.println(grafo);
       
      }
      
      scan2.close();
      fr2.close();
-     
+
+
  }
- 
- public Iterable<Integer> adjacent(int u){
+
+    public ArrayList<Integer> getPersone(String path) throws Exception {
+
+
+        FileReader fr3 = new FileReader(path);
+        Scanner sc3 = new Scanner(fr3);
+
+        persone = new ArrayList<Integer>();
+        sc3.nextLine();
+
+        while (sc3.hasNextInt()) {
+
+            int x = sc3.nextInt();
+
+            persone.add(x);
+
+        }
+
+        System.out.println(persone);
+
+        sc3.close();
+        fr3.close();
+
+        return persone;
+    }
+
+
+    public Iterable<Integer> adjacent(int u){
 	  
 	  return grafo.get(u);
 	  
